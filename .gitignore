@@ -2,6 +2,7 @@
 node_modules/
 
 # Build directories
+./build
 /storybook-static
 
 # Logs

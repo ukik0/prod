@@ -1,18 +1,24 @@
-import {createContext} from "react";
+import {createContext, Dispatch, ReactNode, SetStateAction, useMemo, useState} from "react";
 
-type themes = 'light' | 'dark'
+export type Themes = 'light' | 'dark'
 
 export interface ThemeContextProps {
-    theme?: themes
-    setTheme: (theme: themes) => void
+    theme?: Themes
+    setTheme: Dispatch<SetStateAction<'light' | 'dark'>>
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({theme: 'light', setTheme: () => null})
 
 export const THEME_KEY_LS = 'theme'
 
-export const ThemeProvider = () => {
+export const ThemeProvider = ({children}: {children: ReactNode}) => {
+    const [theme, setTheme] = useState<'light' | 'dark'>(localStorage.getItem(THEME_KEY_LS) as Themes || 'light');
+
+    const themeProps = useMemo(() => ({theme, setTheme}), [theme])
+
     return (
-        <ThemeContextProps.
+        <ThemeContext.Provider value={themeProps}>
+            {children}
+        </ThemeContext.Provider>
     )
 }
