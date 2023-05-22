@@ -1,0 +1,25 @@
+import {clsx} from "@/shared/lib/helprers/classNames/classNames";
+import cl from './SideBar.module.scss'
+import {useState} from "react";
+import {ThemeSwitcher} from "@/shared/ui/ThemeSwitcher";
+
+interface SideBarProps {
+    className?: string
+}
+
+export const SideBar = ({className}: SideBarProps) => {
+    const [collapsed, setCollapsed] = useState<boolean>(false);
+
+    const handleCollapse = () => {
+        setCollapsed(prev => !prev)
+    }
+
+    return (
+        <div className={clsx({cls: cl.SideBar, mods: {[cl.collapsed]: collapsed} ,additional: [className]})}>
+            <button onClick={handleCollapse}>toggle</button>
+            <div className={cl.switchers}>
+                <ThemeSwitcher/>
+            </div>
+        </div>
+    )
+}
