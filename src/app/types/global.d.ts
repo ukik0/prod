@@ -5,3 +5,8 @@ declare module '*.scss' {
     const classNames: IClassNames;
     export = classNames;
 }
+
+// @ts-ignore
+type ReactTagProps<T> = import('react').ComponentPropsWithRef<T>;
+
+type AppThemes = 'primary' | 'secondary'
