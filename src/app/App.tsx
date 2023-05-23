@@ -10,10 +10,6 @@ import './styles/index.scss';
 const App = () => {
     const { theme } = useTheme();
 
-    useEffect(() => {
-        throw Error('error');
-    }, []);
-
     return (
         <div className={clsx({ cls: 'app', additional: [theme] })}>
             <Suspense fallback="">
