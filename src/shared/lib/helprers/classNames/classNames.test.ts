@@ -1,4 +1,4 @@
-import { clsx } from './classNames';
+import { clsx } from '@/shared/lib/helprers/classNames/classNames';
 
 describe('classNames', () => {
     test('without arguments', () => {
