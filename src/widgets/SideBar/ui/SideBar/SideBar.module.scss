@@ -8,17 +8,17 @@
 }
 
 .collapsed {
-  max-width: var(--sidebar-width-collapsed);
+    max-width: var(--sidebar-width-collapsed);
 }
 
 .switchers{
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
