@@ -1,4 +1,4 @@
-import {createContext, Dispatch, SetStateAction} from "react";
+import { createContext, Dispatch, SetStateAction } from 'react';
 
 export type Themes = 'light' | 'dark'
 
@@ -7,4 +7,4 @@ export interface ThemeContextProps {
     setTheme: Dispatch<SetStateAction<'light' | 'dark'>>
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({theme: 'light', setTheme: () => null})
+export const ThemeContext = createContext<ThemeContextProps>({ theme: 'light', setTheme: () => null });
