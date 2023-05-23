@@ -13,7 +13,6 @@ const App = () => {
         <div className={clsx({ cls: 'app', additional: [theme] })}>
             <Suspense fallback="">
                 <NavBar />
-                asdaaaad
                 <div className="content-wrapper">
                     <SideBar />
                     <AppRouter />
