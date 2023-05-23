@@ -18,8 +18,8 @@ export const SideBar = ({ className }: SideBarProps) => {
     };
 
     return (
-        <div className={clsx({ cls: cl.SideBar, mods: { [cl.collapsed]: collapsed }, additional: [className] })}>
-            <button type="button" onClick={handleCollapse}>toggle</button>
+        <div data-testid="SideBar" className={clsx({ cls: cl.SideBar, mods: { [cl.collapsed]: collapsed }, additional: [className] })}>
+            <button data-testid="toggle" type="button" onClick={handleCollapse}>toggle</button>
             <div className={cl.switchers}>
                 <ThemeSwitcher />
                 <LanguageSwitcher />

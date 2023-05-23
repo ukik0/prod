@@ -12,7 +12,7 @@ interface ButtonProps extends ReactTagProps<'button'>{
 export const Button = ({
     className, children, theme = 'clear', ...rest
 }: ButtonProps) => (
-    <button type="button" className={clsx({ cls: cl.Button, additional: [className, cl[theme]] })} {...rest}>
+    <button data-test-id="button" type="button" className={clsx({ cls: cl.Button, additional: [className, cl[theme]] })} {...rest}>
         {children}
     </button>
 );
