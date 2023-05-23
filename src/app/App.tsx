@@ -1,13 +1,18 @@
-import { Suspense } from 'react';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { Suspense, useEffect } from 'react';
+
 import { AppRouter } from '@/app/providers/Router';
+import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { NavBar } from '@/widgets/NavBar';
 import { SideBar } from '@/widgets/SideBar';
 import './styles/index.scss';
 
 const App = () => {
     const { theme } = useTheme();
+
+    useEffect(() => {
+        throw Error('error');
+    }, []);
 
     return (
         <div className={clsx({ cls: 'app', additional: [theme] })}>

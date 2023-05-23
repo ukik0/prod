@@ -1,7 +1,8 @@
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
-import cl from './NavBar.module.scss';
-import { Anchor } from '@/shared/ui/Anchor/Anchor';
 import { RoutePaths } from '@/shared/config/routesConfig/routesConfig';
+import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { Anchor } from '@/shared/ui/Anchor/Anchor';
+
+import cl from './NavBar.module.scss';
 
 interface NavBarProps {
     className?: string
@@ -18,7 +19,6 @@ export const NavBar = ({ className }: NavBarProps) => {
                     О нас
                 </Anchor>
             </div>
-
         </div>
     );
 };

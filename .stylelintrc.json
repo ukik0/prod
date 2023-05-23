@@ -1,7 +1,35 @@
 {
   "extends": "stylelint-config-standard-scss",
+  "plugins": ["stylelint-order"],
   "rules": {
     "indentation": [4],
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "string-quotes": "single",
+    "declaration-colon-space-before": "never",
+    "declaration-colon-space-after": "always",
+    "rule-empty-line-before": "never",
+    "order/order": [
+      "declarations",
+      {
+        "type": "at-rule",
+        "name": "media"
+      },
+      {
+        "type": "rule",
+        "selector": "^&::(before|after)"
+      },
+      {
+        "type": "rule",
+        "selector": "^&:\\w"
+      },
+      {
+        "type": "rule",
+        "selector": "^&_"
+      },
+      {
+        "type": "rule",
+        "selector": "^."
+      }
+    ]
   }
 }

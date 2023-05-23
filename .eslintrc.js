@@ -43,6 +43,22 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'i18next/no-literal-string': ['warn', { markupOnly: true }],
+        'import/order': [
+            2,
+            {
+                groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+                'newlines-between': 'always',
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                    },
+                ],
+                alphabetize: {
+                    order: 'asc',
+                },
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

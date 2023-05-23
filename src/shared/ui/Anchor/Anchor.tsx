@@ -1,6 +1,8 @@
-import { Link, LinkProps } from 'react-router-dom';
 import { ReactNode } from 'react';
+import { Link, LinkProps } from 'react-router-dom';
+
 import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+
 import cl from './Anchor.module.scss';
 
 interface AnchorProps extends LinkProps {

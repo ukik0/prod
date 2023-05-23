@@ -1,16 +1,14 @@
 .SideBar {
+    position: relative;
     height: calc(100vh - var(--navbar-height));
     max-width: var(--sidebar-width);
     width: 100%;
     background: var(--inverted-bg-color);
-    position: relative;
     transition: .3s max-width ease;
 }
-
 .collapsed {
     max-width: var(--sidebar-width-collapsed);
 }
-
 .switchers{
     position: absolute;
     display: flex;

@@ -1,20 +1,17 @@
-@import "src/app/styles/reset";
-@import "src/app/styles/variables/global";
-@import "src/app/styles/themes/dark";
-@import "src/app/styles/themes/default";
-
+@import 'src/app/styles/reset';
+@import 'src/app/styles/variables/global';
+@import 'src/app/styles/themes/dark';
+@import 'src/app/styles/themes/default';
 .app {
     font: var(--font-m);
     color: var(--primary-color);
     background: var(--bg-color);
     min-height: 100vh;
 }
-
 .content-wrapper{
     display: flex;
     align-items: flex-start;
 }
-
 .page-wrapper{
     flex: 1;
     padding: 20px;
