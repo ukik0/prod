@@ -22,4 +22,4 @@ declare const __IS_DEV__: boolean;
 // @ts-ignore
 type ReactTagProps<T> = import('react').ComponentPropsWithRef<T>;
 
-type AppThemes = 'primary' | 'secondary'
+type AppThemes = 'light' | 'dark'

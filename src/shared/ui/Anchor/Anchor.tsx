@@ -5,10 +5,12 @@ import { clsx } from '@/shared/lib/helprers/classNames/classNames';
 
 import cl from './Anchor.module.scss';
 
+type AnchorTheme = 'primary' | 'secondary' | 'red'
+
 interface AnchorProps extends LinkProps {
     className?: string
     children: ReactNode
-    theme?: AppThemes
+    theme?: AnchorTheme
 }
 
 export const Anchor = ({
