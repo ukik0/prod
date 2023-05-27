@@ -12,11 +12,12 @@ jobs:
         node-version: [ 17.x ]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }
+      - name: Checkout master branch
+        uses: actions/checkout@v2
       - name: install modules
         run: yarn
       - name: build production project
