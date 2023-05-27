@@ -89,6 +89,9 @@
     "webpack-dev-server": "4.7.4"
   },
   "loki": {
+    "look-same": {
+      "ignoreCaret": true
+    },
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",
