@@ -39,8 +39,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                     ['@babel/preset-env', { targets: 'defaults' }],
                 ],
                 plugins: [
-                    ['i18next-extract', { nsSeparator: '~', locales: ['ru', 'en'], keyAsDefaultValue: true }, isDev && require.resolve('react-refresh/babel')],
-                ],
+                    ['i18next-extract', { nsSeparator: '~', locales: ['ru', 'en'], keyAsDefaultValue: true }],
+                    isDev && require.resolve('react-refresh/babel'),
+                ].filter(Boolean),
             },
         },
     };

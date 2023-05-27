@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
         node-version: [ 17.x ]
     steps:
       - name: Checkout Commit
@@ -24,14 +24,11 @@ jobs:
         run: yarn build:prod
       - name: linting typescript
         run: yarn eslint
-      - name: linting css
+      - name: linting scss
         run: yarn stylelint
       - name: unit testing
-#        if: always()
         run: yarn test:unit
-#      - name: build storybook
-#        run: yarn storybook:build
-#        if: always()
-#      - name: screenshot testing
-#        run: yarn test:ui:approve
-#        if: always()
+      - name: build storybook
+        run: yarn storybook:build
+      - name: screenshot testing
+        run: yarn test:ui:ci

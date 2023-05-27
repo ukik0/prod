@@ -20,7 +20,9 @@ export default ({ config }: {config: webpack.Configuration}) => {
     };
     config.module.rules.push(buildCssLoader(true));
     config.module.rules = config.module.rules.map((rule) => {
+        // @ts-ignore
         if (/svg/.test(rule.test)) {
+        // @ts-ignore
             return { ...rule, exclude: /\.svg$/i };
         }
 
