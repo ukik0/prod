@@ -1,0 +1,22 @@
+.title-1 {
+    font: var(--font-xl);
+    color: var(--inverted-primary-color);
+}
+
+.title-2 {
+    @extend .title-1;
+
+    font: var(--font-l);
+}
+
+.text {
+    font: var(--font-line-m);
+    font-weight: 500;
+    line-height: 25px;
+    color: var(--inverted-primary-color);
+}
+
+.error {
+    font: var(--font-m);
+    color: red;
+}

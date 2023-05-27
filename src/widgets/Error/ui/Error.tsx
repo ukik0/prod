@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { clsx } from '@/shared/lib/helprers/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
+import { Typography } from '@/shared/ui/Typography';
 
 import cl from './Error.module.scss';
 
@@ -18,7 +19,7 @@ export const Error = ({ className }: ErrorProps) => {
 
     return (
         <div className={clsx({ cls: cl.Error, additional: [className] })}>
-            <p>{t('Произошла непредвиденная ошибка')}</p>
+            <Typography variant="text">{t('Произошла непредвиденная ошибка')}</Typography>
             <Button onClick={reloadPage}>
                 {t('Обновить страницу')}
             </Button>

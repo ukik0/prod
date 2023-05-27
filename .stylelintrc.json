@@ -7,6 +7,7 @@
     "string-quotes": "single",
     "declaration-colon-space-before": "never",
     "declaration-colon-space-after": "always",
+    "scss/at-extend-no-missing-placeholder": null,
     "order/order": [
       "declarations",
       {

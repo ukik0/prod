@@ -8,6 +8,7 @@ import { Button } from '@/shared/ui/Button';
 import { Icons } from '@/shared/ui/Icons';
 import { LanguageSwitcher } from '@/shared/ui/LanguageSwitcher/ui/LanguageSwitcher';
 import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
+import { Typography } from '@/shared/ui/Typography';
 
 import cl from './SideBar.module.scss';
 
@@ -31,13 +32,13 @@ export const SideBar = ({ className }: SideBarProps) => {
                 <div>
                     <Anchor className={cl.item} to={RoutePaths.main} theme="secondary">
                         <Icons.Home className={cl.icon} />
-                        <span className={cl.link}>{t('Главная')}</span>
+                        <Typography variant="text" className={cl.link}>{t('Главная')}</Typography>
                     </Anchor>
                 </div>
                 <div>
                     <Anchor className={cl.item} to={RoutePaths.about} theme="secondary">
                         <Icons.About className={cl.icon} />
-                        <span className={cl.link}>{t('О нас')}</span>
+                        <Typography variant="text" className={cl.link}>{t('О нас')}</Typography>
                     </Anchor>
                 </div>
             </div>
