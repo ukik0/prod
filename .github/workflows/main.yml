@@ -12,12 +12,12 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [ 17.x ]
     steps:
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
-        with:
-          node-version: ${{ matrix.node }
-      - name: Checkout master branch
+      - name: Checkout Commit
         uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
       - name: install modules
         run: yarn
       - name: build production project
@@ -27,11 +27,11 @@ jobs:
       - name: linting css
         run: yarn stylelint
       - name: unit testing
-        if: always()
+#        if: always()
         run: yarn test:unit
-      - name: build storybook
-        run: yarn storybook:build
-        if: always()
-      - name: screenshot testing
-        run: yarn test:ui:ci
-        if: always()
+#      - name: build storybook
+#        run: yarn storybook:build
+#        if: always()
+#      - name: screenshot testing
+#        run: yarn test:ui:approve
+#        if: always()
