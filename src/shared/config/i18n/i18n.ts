@@ -5,13 +5,11 @@ import { initReactI18next } from 'react-i18next';
 
 i18n
     .use(Backend)
-
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
         fallbackLng: 'ru',
         debug: true,
-
         interpolation: {
             escapeValue: !!__IS_DEV__,
         },

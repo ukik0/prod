@@ -13,7 +13,9 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "yarn loki test",
     "test:ui:approve": "yarn loki approve",
-    "test:ui:ci": "yarn loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "reg:json": "node scripts/generate-visual-json-report.js",
+    "reg:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook"
   },
@@ -72,6 +74,7 @@
     "loki": "^0.31.2",
     "mini-css-extract-plugin": "2.5.3",
     "react-refresh": "^0.14.0",
+    "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.11",
     "sass": "^1.62.1",
     "sass-loader": "12.6.0",
@@ -89,7 +92,7 @@
     "webpack-dev-server": "4.7.4"
   },
   "loki": {
-    "look-same": {
+    "looks-same": {
       "ignoreCaret": true
     },
     "configurations": {

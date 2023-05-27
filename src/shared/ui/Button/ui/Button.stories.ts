@@ -17,7 +17,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
     args: {
         children: 'Primary',
-        theme: '',
+        theme: null,
     },
 };
 
@@ -35,10 +35,51 @@ export const Outlined: Story = {
     },
 };
 
+export const Background: Story = {
+    args: {
+        children: 'Background',
+        theme: 'background',
+    },
+};
+
+export const BackgroundInverted: Story = {
+    args: {
+        children: 'BackgroundInverted',
+        theme: 'backgroundInverted',
+    },
+};
+
+export const Square: Story = {
+    args: {
+        children: 'Square',
+        square: true,
+    },
+};
+
+export const SizeL: Story = {
+    args: {
+        children: 'SizeL',
+        size: 'L',
+    },
+};
+
+export const SizeM: Story = {
+    args: {
+        children: 'SizeM',
+        size: 'M',
+    },
+};
+
+export const SizeXL: Story = {
+    args: {
+        children: 'SizeXL',
+        size: 'XL',
+    },
+};
+
 export const OutlinedDark: Story = {
     args: {
         children: 'Outlined',
-        theme: 'outline',
     },
 };
 

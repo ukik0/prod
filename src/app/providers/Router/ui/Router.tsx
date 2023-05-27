@@ -7,7 +7,7 @@ import { PageLoader } from '@/widgets/PageLoader';
 export const AppRouter = () => (
     <Routes>
         {Object.values(routeConfig).map(({ element, path }, index) => (
-            <Route key={index} path={path} element={<div className="page-wrapper"><Suspense fallback={<PageLoader />}>{element}</Suspense></div>} />
+            <Route key={index} path={path} element={<Suspense fallback={<PageLoader />}><div className="page-wrapper">{element}</div></Suspense>} />
         ))}
     </Routes>
 );

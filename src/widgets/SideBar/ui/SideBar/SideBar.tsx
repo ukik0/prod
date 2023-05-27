@@ -1,6 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
+import { RoutePaths } from '@/shared/config/routesConfig/routesConfig';
 import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { Anchor } from '@/shared/ui/Anchor/Anchor';
+import { Button } from '@/shared/ui/Button';
+import { Icons } from '@/shared/ui/Icons';
 import { LanguageSwitcher } from '@/shared/ui/LanguageSwitcher/ui/LanguageSwitcher';
 import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
 
@@ -13,16 +18,32 @@ interface SideBarProps {
 export const SideBar = ({ className }: SideBarProps) => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
 
+    const { t } = useTranslation();
+
     const handleCollapse = () => {
         setCollapsed((prev) => !prev);
     };
 
     return (
         <div data-testid="SideBar" className={clsx({ cls: cl.SideBar, mods: { [cl.collapsed]: collapsed }, additional: [className] })}>
-            <button data-testid="toggle" type="button" onClick={handleCollapse}>toggle</button>
+            <Button square size="L" theme="backgroundInverted" data-testid="toggle" type="button" onClick={handleCollapse} className={cl.collapsedButton}>{collapsed ? '>' : '<'}</Button>
+            <div className={cl.items}>
+                <div>
+                    <Anchor className={cl.item} to={RoutePaths.main} theme="secondary">
+                        <Icons.Home className={cl.icon} />
+                        <span className={cl.link}>{t('Главная')}</span>
+                    </Anchor>
+                </div>
+                <div>
+                    <Anchor className={cl.item} to={RoutePaths.about} theme="secondary">
+                        <Icons.About className={cl.icon} />
+                        <span className={cl.link}>{t('О нас')}</span>
+                    </Anchor>
+                </div>
+            </div>
             <div className={cl.switchers}>
                 <ThemeSwitcher />
-                <LanguageSwitcher />
+                <LanguageSwitcher short={collapsed} />
             </div>
         </div>
     );
