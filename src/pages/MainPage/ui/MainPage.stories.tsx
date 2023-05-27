@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { MainPage } from '@/pages/MainPage';
+import MainPage from '@/pages/MainPage/ui/MainPage';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta: Meta<typeof MainPage> = {
