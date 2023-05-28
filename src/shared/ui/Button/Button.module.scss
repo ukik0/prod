@@ -7,10 +7,14 @@
     padding: 6px 15px;
 }
 
-.clear {
+.clear, .clearInverted {
     border: none;
     background: none;
     outline: none;
+}
+
+.clearInverted {
+    color: var(--inverted-primary-color);
 }
 
 .outline {
@@ -25,27 +29,27 @@
     border: none;
 }
 
-.backgroundInverted{
+.backgroundInverted {
     background: var(--inverted-bg-color);
     color: var(--inverted-primary-color);
     border: none;
 }
 
-.square{
+.square {
     padding: 0;
 }
 
-.square.L{
+.square.L {
     width: var(--font-line-m);
     height: var(--font-line-m);
 }
 
-.square.M{
+.square.M {
     width: var(--font-line-l);
     height: var(--font-line-l);
 }
 
-.square.XL{
+.square.XL {
     width: var(--font-line-xl);
     height: var(--font-line-xl);
 }
@@ -58,6 +62,6 @@
     font: var(--font-l)
 }
 
-.XL{
+.XL {
     font: var(--font-xl)
 }

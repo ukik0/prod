@@ -1,11 +1,10 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 
 import { AppRouter } from '@/app/providers/Router';
 import { clsx } from '@/shared/lib/helprers/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { NavBar } from '@/widgets/NavBar';
 import { SideBar } from '@/widgets/SideBar';
-import './styles/index.scss';
 
 const App = () => {
     const { theme } = useTheme();

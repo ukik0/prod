@@ -17,5 +17,12 @@ export const Typography = ({
 }: TypographyProps) => {
     const Component = tag;
 
-    return <Component className={clsx({ additional: [className, cl[variant]] })}>{children}</Component>;
+    return (
+        <Component
+            data-testid="Typography"
+            className={clsx({ additional: [className, cl[variant]] })}
+        >
+            {children}
+        </Component>
+    );
 };

@@ -2,10 +2,10 @@ import { clsx } from '@/shared/lib/helprers/classNames/classNames';
 
 import cl from './Button.module.scss';
 
-type ButtonThemes = 'clear' | 'outline' | 'background' | 'backgroundInverted'
+type ButtonThemes = 'clear' | 'clearInverted' | 'outline' | 'background' | 'backgroundInverted'
 type ButtonSizes = 'L' | 'M' | 'XL'
 
-interface ButtonProps extends ReactTagProps<'button'>{
+interface ButtonProps extends ReactTagProps<'button'> {
     className?: string
     theme?: ButtonThemes
     square?: boolean

@@ -6,7 +6,7 @@ import { clsx } from '@/shared/lib/helprers/classNames/classNames';
 import { Anchor } from '@/shared/ui/Anchor/Anchor';
 import { Button } from '@/shared/ui/Button';
 import { Icons } from '@/shared/ui/Icons';
-import { LanguageSwitcher } from '@/shared/ui/LanguageSwitcher/ui/LanguageSwitcher';
+import { LanguageSwitcher } from '@/shared/ui/LanguageSwitcher/LanguageSwitcher';
 import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
 import { Typography } from '@/shared/ui/Typography';
 
