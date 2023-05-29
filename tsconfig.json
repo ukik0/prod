@@ -10,9 +10,11 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
-    "jsx": "react-jsx",
+    "jsx": "react-jsx"
   },
   "ts-node": {
     "compilerOptions": {

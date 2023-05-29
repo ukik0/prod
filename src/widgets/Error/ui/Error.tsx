@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { clsx } from '@/shared/lib/helprers/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Typography } from '@/shared/ui/Typography';
 

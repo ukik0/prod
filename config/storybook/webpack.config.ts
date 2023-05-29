@@ -5,7 +5,7 @@ import webpack from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
@@ -22,7 +22,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config.module.rules = config.module.rules.map((rule) => {
         // @ts-ignore
         if (/svg/.test(rule.test)) {
-        // @ts-ignore
+            // @ts-ignore
             return { ...rule, exclude: /\.svg$/i };
         }
 
@@ -34,6 +34,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
         issuer: /\.[jt]sx?$/,
         use: ['@svgr/webpack'],
     });
+
+    config.plugins.push(new webpack.DefinePlugin({
+        __IS_DEV__: true,
+    }));
 
     return config;
 };

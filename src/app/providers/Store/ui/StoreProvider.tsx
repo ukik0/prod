@@ -1,5 +1,4 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 
 import { createStore } from '@/app/providers/Store';
@@ -7,7 +6,7 @@ import { createStore } from '@/app/providers/Store';
 import { StateSchema } from '../config/Schema';
 
 interface storeProps {
-    children?: ReactNode
+    children: JSX.Element
     initialState?: DeepPartial<StateSchema>
 }
 

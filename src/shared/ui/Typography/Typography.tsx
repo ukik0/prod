@@ -1,4 +1,6 @@
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { ReactNode } from 'react';
+
+import { clsx } from '@/shared/lib/helprers/classNames';
 
 import cl from './Typography.module.scss';
 
@@ -6,7 +8,7 @@ type TagTypes = keyof HTMLElementTagNameMap;
 type VariantTypes = 'title-1' | 'title-2' | 'text' | 'error';
 
 interface TypographyProps {
-    children: string;
+    children: ReactNode;
     variant: VariantTypes;
     tag?: TagTypes;
     className?: string;

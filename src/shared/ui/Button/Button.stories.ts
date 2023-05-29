@@ -84,6 +84,13 @@ export const SizeXL: Story = {
     },
 };
 
+export const Disabled: Story = {
+    args: {
+        children: 'Disabled',
+        disabled: true,
+    },
+};
+
 export const OutlinedDark: Story = {
     args: {
         children: 'Outlined',

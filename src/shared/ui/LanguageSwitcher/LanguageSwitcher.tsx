@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { clsx } from '@/shared/lib/helprers/classNames';
 import { Button } from '@/shared/ui/Button';
 
 interface LanguageSwitcherProps {
@@ -15,5 +15,14 @@ export const LanguageSwitcher = ({ className, short }: LanguageSwitcherProps) =>
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
     };
 
-    return <Button size="L" className={clsx({ additional: [className] })} theme="clear" onClick={toggleLanguage}>{t(short ? 'Короткий язык' : 'Язык')}</Button>;
+    return (
+        <Button
+            size="L"
+            className={clsx({ additional: [className] })}
+            theme="clear"
+            onClick={toggleLanguage}
+        >
+            {t(short ? 'Короткий язык' : 'Язык')}
+        </Button>
+    );
 };

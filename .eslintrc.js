@@ -42,6 +42,8 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'jsx-a11y/no-autofocus': 'off',
+        'consistent-return': 'off',
+        'no-use-before-define': 'off',
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],

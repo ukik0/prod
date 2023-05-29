@@ -49,3 +49,30 @@ export const VariantTitleDark: Story = {
 };
 
 VariantTitleDark.decorators = [ThemeDecorator({ theme: 'dark' })];
+
+export const VariantSubTitleDark: Story = {
+    args: {
+        children: 'VariantSubTitle',
+        variant: 'title-2',
+    },
+};
+
+VariantSubTitleDark.decorators = [ThemeDecorator({ theme: 'dark' })];
+
+export const VariantTextDark: Story = {
+    args: {
+        children: 'VariantText',
+        variant: 'text',
+    },
+};
+
+VariantTextDark.decorators = [ThemeDecorator({ theme: 'dark' })];
+
+export const VariantErrorDark: Story = {
+    args: {
+        children: 'VariantError',
+        variant: 'error',
+    },
+};
+
+VariantErrorDark.decorators = [ThemeDecorator({ theme: 'dark' })];

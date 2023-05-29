@@ -2,7 +2,7 @@ import {
     ChangeEvent, memo, useEffect, useRef, useState,
 } from 'react';
 
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { clsx } from '@/shared/lib/helprers/classNames';
 import { Typography } from '@/shared/ui/Typography';
 
 import cl from './Input.module.scss';

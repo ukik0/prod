@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { decrement, increment } from '@/entities/Counter';
+import { counterActions } from '@/entities/Counter';
 import { getCounterValue } from '@/entities/Counter/model/selectors';
 import { Button } from '@/shared/ui/Button';
 
@@ -9,11 +9,11 @@ export const Counter = () => {
     const dispatch = useDispatch();
 
     const handleInc = () => {
-        dispatch(increment());
+        dispatch(counterActions.increment());
     };
 
     const handleDec = () => {
-        dispatch(decrement());
+        dispatch(counterActions.decrement());
     };
 
     return (

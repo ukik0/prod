@@ -4,12 +4,14 @@ import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDe
 
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { TranslationDecorator } from '../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator';
 
 const preview: Preview = {
     decorators: [
         StyleDecorator,
         ThemeDecorator({ theme: 'light' }),
         RouteDecorator,
+        TranslationDecorator,
     ],
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },

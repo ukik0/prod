@@ -1,7 +1,7 @@
 import { Decorator } from '@storybook/react';
 
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { clsx } from '@/shared/lib/helprers/classNames';
 
 export const ThemeDecorator = ({ theme }: { theme: AppThemes }): Decorator => (Story) => (
     <ThemeProvider initialTheme={theme}>

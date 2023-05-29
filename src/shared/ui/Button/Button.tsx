@@ -1,4 +1,4 @@
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { clsx } from '@/shared/lib/helprers/classNames';
 
 import cl from './Button.module.scss';
 
@@ -10,15 +10,21 @@ interface ButtonProps extends ReactTagProps<'button'> {
     theme?: ButtonThemes
     square?: boolean
     size?: ButtonSizes
+    disabled?: boolean
 }
 
 export const Button = ({
-    className, size = 'XL', square, children, theme = 'outline', ...rest
+    className, size = 'XL', square, children, disabled, theme = 'outline', ...rest
 }: ButtonProps) => (
     <button
         data-test-id="button"
         type="button"
-        className={clsx({ cls: cl.Button, mods: { [cl.square]: square }, additional: [className, cl[theme], cl[size]] })}
+        disabled={disabled}
+        className={clsx({
+            cls: cl.Button,
+            mods: { [cl.square]: square, [cl.disabled]: disabled },
+            additional: [className, cl[theme], cl[size]],
+        })}
         {...rest}
     >
         {children}

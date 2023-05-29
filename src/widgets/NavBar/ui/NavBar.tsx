@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { userActions } from '@/entities/User';
+import { getUserData } from '@/entities/User/model/selectors';
 import { LoginModal } from '@/features/AuthByUsername';
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { clsx } from '@/shared/lib/helprers/classNames';
 import { Button } from '@/shared/ui/Button';
 
 import cl from './NavBar.module.scss';
@@ -14,14 +17,17 @@ interface NavBarProps {
 export const NavBar = ({ className }: NavBarProps) => {
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const authData = useSelector(getUserData);
 
-    const closeModalHandler = () => {
+    const closeModalHandler = useCallback(() => {
         setIsOpen(false);
-    };
+    }, []);
 
-    const showModalHandler = () => {
+    const showModalHandler = useCallback(() => {
         setIsOpen(true);
-    };
+    }, []);
+
+    if (authData) return <AuthNavbar />;
 
     return (
         <div className={clsx({ cls: cl.Navbar, additional: [className] })}>
@@ -33,3 +39,20 @@ export const NavBar = ({ className }: NavBarProps) => {
         </div>
     );
 };
+
+function AuthNavbar() {
+    const { t } = useTranslation();
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(userActions.logout());
+    };
+
+    return (
+        <div className={clsx({ cls: cl.Navbar })}>
+            <Button size="M" onClick={handleLogout} theme="clearInverted" className={cl.links}>
+                {t('Выйти')}
+            </Button>
+        </div>
+    );
+}

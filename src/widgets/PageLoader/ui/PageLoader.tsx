@@ -1,4 +1,4 @@
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { clsx } from '@/shared/lib/helprers/classNames';
 import { Loader } from '@/shared/ui/Loader';
 
 import cl from './PageLoader..module.scss';

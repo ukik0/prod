@@ -1,4 +1,4 @@
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
+import { clsx } from '@/shared/lib/helprers/classNames';
 import './Loader.scss';
 
 interface LoaderProps {
