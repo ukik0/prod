@@ -12,12 +12,8 @@ const initialState: UserStateSchema = {
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {
-        increment: (state) => {
-
-        },
-    },
+    reducers: {},
 });
 
-export const {} = userSlice.actions;
+// export const { increment } = userSlice.actions;
 export const UserReducer = userSlice.reducer;
