@@ -13,7 +13,7 @@ interface ButtonProps extends ReactTagProps<'button'> {
 }
 
 export const Button = ({
-    className, size = 'XL', square, children, theme = 'clear', ...rest
+    className, size = 'XL', square, children, theme = 'outline', ...rest
 }: ButtonProps) => (
     <button
         data-test-id="button"
