@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { LoginModal } from '@/features/AuthByUsername';
 import { clsx } from '@/shared/lib/helprers/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
-import { Modal } from '@/shared/ui/Modal';
 
 import cl from './NavBar.module.scss';
 
@@ -15,19 +15,21 @@ export const NavBar = ({ className }: NavBarProps) => {
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const closeHandler = () => {
-        setIsOpen((prev) => !prev);
+    const closeModalHandler = () => {
+        setIsOpen(false);
+    };
+
+    const showModalHandler = () => {
+        setIsOpen(true);
     };
 
     return (
         <div className={clsx({ cls: cl.Navbar, additional: [className] })}>
-            <Button size="M" onClick={closeHandler} theme="clearInverted" className={cl.links}>
+            <Button size="M" onClick={showModalHandler} theme="clearInverted" className={cl.links}>
                 {t('Войти')}
             </Button>
 
-            <Modal isOpen={isOpen} onClose={closeHandler}>
-                asdadaa
-            </Modal>
+            <LoginModal isOpen={isOpen} onClose={closeModalHandler} />
         </div>
     );
 };

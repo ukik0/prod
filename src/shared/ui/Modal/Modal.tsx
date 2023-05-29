@@ -12,12 +12,14 @@ interface ModalProps {
     children: ReactNode
     isOpen: boolean
     onClose: () => void
+    lazy?: boolean
 }
 
 export const Modal = ({
-    className, onClose, isOpen, children,
+    className, onClose, isOpen, children, lazy,
 }: ModalProps) => {
     const [isClosing, setIsClosing] = useState<boolean>(false);
+    const [isMounted, setIsMounted] = useState<boolean>(false);
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const handleClose = useCallback(() => {
@@ -50,6 +52,14 @@ export const Modal = ({
             window.removeEventListener('keydown', handleKeyDown);
         };
     }, [isOpen, handleKeyDown]);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
+
+    if (lazy && !isMounted) return null;
 
     return (
         <Portal container={document.querySelector('.app')}>

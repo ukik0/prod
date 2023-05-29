@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import { decrement, increment } from '@/entities/Counter';
 import { getCounterValue } from '@/entities/Counter/model/selectors';
-import { decrement, increment } from '@/entities/Counter/model/slice/counter';
 import { Button } from '@/shared/ui/Button';
 
 export const Counter = () => {
