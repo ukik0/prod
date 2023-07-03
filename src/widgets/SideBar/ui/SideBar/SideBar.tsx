@@ -5,7 +5,7 @@ import { RoutePaths } from '@/shared/config/routesConfig/routesConfig';
 import { clsx } from '@/shared/lib/helprers/classNames/classNames';
 import { Anchor } from '@/shared/ui/Anchor/Anchor';
 import { Button } from '@/shared/ui/Button';
-import { Icons } from '@/shared/ui/Icons';
+import { Icon } from '@/shared/ui/Icon';
 import { LanguageSwitcher } from '@/shared/ui/LanguageSwitcher/LanguageSwitcher';
 import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
 import { Typography } from '@/shared/ui/Typography';
@@ -55,13 +55,13 @@ function Items() {
         <div className={cl.items}>
             <div>
                 <Anchor className={cl.item} to={RoutePaths.main} theme="secondary">
-                    <Icons.Home className={cl.icon} />
+                    <Icon name="sidebar/home" className={cl.icon} />
                     <Typography variant="text" className={cl.link}>{t('Главная')}</Typography>
                 </Anchor>
             </div>
             <div>
                 <Anchor className={cl.item} to={RoutePaths.about} theme="secondary">
-                    <Icons.About className={cl.icon} />
+                    <Icon name="sidebar/about" className={cl.icon} />
                     <Typography variant="text" className={cl.link}>{t('О нас')}</Typography>
                 </Anchor>
             </div>

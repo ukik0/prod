@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,7 +11,7 @@ import { Button } from '@/shared/ui/Button';
 import cl from './NavBar.module.scss';
 
 interface NavBarProps {
-    className?: string
+    className?: string;
 }
 
 export const NavBar = ({ className }: NavBarProps) => {
@@ -26,6 +26,12 @@ export const NavBar = ({ className }: NavBarProps) => {
     const showModalHandler = useCallback(() => {
         setIsOpen(true);
     }, []);
+
+    useEffect(() => {
+        return () => {
+            if (!authData) setIsOpen(false);
+        };
+    }, [authData]);
 
     if (authData) return <AuthNavbar />;
 

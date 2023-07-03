@@ -1,6 +1,6 @@
 import { Reducer } from '@reduxjs/toolkit';
 import { useEffect } from 'react';
-import { useDispatch, useStore } from 'react-redux';
+import { useStore } from 'react-redux';
 
 import { ReduxStoreManager } from '@/app/providers/Store';
 import { StateSchemaKeys } from '@/app/providers/Store/config/Schema';
@@ -23,16 +23,13 @@ export const DynamicModuleLoader = ({
     removeAfterUnmount = true,
 }: DynamicModuleLoaderProps) => {
     const store = useStore() as ReduxStoreManager;
-    const dispatch = useDispatch();
 
     useEffect(() => {
         Object.entries(reducers).forEach(([key, reducer]: ReducerEntries) => store.reducerManager.add(key, reducer));
-        dispatch({ type: '@@INIT reducer' });
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([key, _]: ReducerEntries) => store.reducerManager.remove(key));
-                dispatch({ type: '@@REMOVE reducer' });
+                Object.entries(reducers).forEach(([key]: ReducerEntries) => store.reducerManager.remove(key));
             }
         };
         // eslint-disable-next-line

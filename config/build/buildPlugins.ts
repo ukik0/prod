@@ -1,3 +1,5 @@
+// @ts-ignore
+import svg from '@neodx/svg/webpack';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -16,6 +18,15 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
+        }),
+        svg({
+            root: 'src/shared/assets/icons',
+            output: 'public/sprite',
+            definitions: 'src/shared/ui/icon/sprite-definitions.ts',
+            group: true,
+            resetColors: {
+                replaceUnknown: 'currentColor',
+            },
         }),
     ];
 

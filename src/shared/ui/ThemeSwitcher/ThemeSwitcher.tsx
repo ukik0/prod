@@ -1,8 +1,7 @@
-import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
-import LightIcon from '@/shared/assets/icons/theme-light.svg';
 import { clsx } from '@/shared/lib/helprers/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 
 interface ThemeSwitcherProps extends ReactTagProps<'button'> {
     className?: string
@@ -13,7 +12,7 @@ export const ThemeSwitcher = ({ className, ...rest }: ThemeSwitcherProps) => {
 
     return (
         <Button theme="clear" onClick={toggleTheme} className={clsx({ additional: [className] })} {...rest}>
-            {theme === 'dark' ? <LightIcon /> : <DarkIcon />}
+            {theme === 'dark' ? <Icon name="theme/sun" /> : <Icon name="theme/moon" />}
         </Button>
     );
 };
