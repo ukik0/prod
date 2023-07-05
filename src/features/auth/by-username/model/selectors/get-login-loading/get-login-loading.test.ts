@@ -2,7 +2,7 @@ import { DeepPartial } from '@reduxjs/toolkit';
 
 import { StateSchema } from '@/app/providers/Store';
 
-import { getLoginLoading } from './getLoginLoading';
+import { getLoginLoading } from './get-login-loading';
 
 describe('getLoginError.test', () => {
     test('should return error', () => {

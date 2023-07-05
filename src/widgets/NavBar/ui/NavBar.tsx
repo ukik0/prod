@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { userActions } from '@/entities/User';
 import { getUserData } from '@/entities/User/model/selectors';
-import { LoginModal } from '@/features/AuthByUsername';
+import { LoginModal } from '@/features/auth/by-username';
 import { clsx } from '@/shared/lib/helprers/classNames';
 import { Button } from '@/shared/ui/Button';
 

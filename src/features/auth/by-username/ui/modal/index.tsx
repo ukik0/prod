@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { Loader } from '@/shared/ui/Loader';
 import { Modal } from '@/shared/ui/Modal';
 
-import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
+import { LoginFormLazy } from '../form/index.lazy';
 
 interface LoginModalProps {
     isOpen: boolean

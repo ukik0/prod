@@ -2,19 +2,16 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { loginByUsername } from '@/features/auth/by-username/model/actions';
+import * as selectors from '@/features/auth/by-username/model/selectors';
+import { loginActions, LoginReducer } from '@/features/auth/by-username/model/slice';
 import { DynamicModuleLoader, Reducers } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { clsx } from '@/shared/lib/helprers/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Typography } from '@/shared/ui/Typography';
 
-import { loginByUsername } from '../../model/actions/loginByUsername/loginByUsername';
-import {
-    getLoginError, getLoginLoading, getLoginPassword, getLoginUsername,
-} from '../../model/selectors';
-import { loginActions, LoginReducer } from '../../model/slice/loginSlice';
-
-import cl from './LoginForm.module.scss';
+import cl from './index.module.scss';
 
 interface LoginFormProps {
     className?: string;
@@ -44,7 +41,7 @@ export default LoginForm;
 
 function Error() {
     const { t } = useTranslation();
-    const error = useSelector(getLoginError);
+    const error = useSelector(selectors.getLoginError);
 
     return (error && <Typography variant="error" tag="span">{t('Вы ввели неверный логин или пароль')}</Typography>);
 }
@@ -53,7 +50,7 @@ function UsernameInput() {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
-    const username = useSelector(getLoginUsername);
+    const username = useSelector(selectors.getLoginUsername);
 
     const handleChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -74,7 +71,7 @@ function PasswordInput() {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
-    const password = useSelector(getLoginPassword);
+    const password = useSelector(selectors.getLoginPassword);
 
     const handleChangePassword = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value));
@@ -94,9 +91,9 @@ function ConfirmButton() {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
-    const password = useSelector(getLoginPassword);
-    const username = useSelector(getLoginUsername);
-    const isLoading = useSelector(getLoginLoading);
+    const password = useSelector(selectors.getLoginPassword);
+    const username = useSelector(selectors.getLoginUsername);
+    const isLoading = useSelector(selectors.getLoginLoading);
 
     const handleLogin = useCallback(() => {
         dispatch(loginByUsername({ username, password }));
