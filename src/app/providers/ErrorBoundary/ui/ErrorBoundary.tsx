@@ -1,4 +1,4 @@
-import React, { ErrorInfo, ReactNode, Suspense } from 'react';
+import React, { ErrorInfo, Suspense } from 'react';
 
 import { Error } from '@/widgets/Error';
 

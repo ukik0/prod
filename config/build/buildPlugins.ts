@@ -1,6 +1,7 @@
 // @ts-ignore
 import svg from '@neodx/svg/webpack';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
@@ -8,16 +9,23 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+dotenv.config();
+
+export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({ template: paths.html }),
         new webpack.ProgressPlugin(),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
+            'process.env': JSON.stringify(process.env),
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
+        }),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
         }),
         svg({
             root: 'src/shared/assets/icons',

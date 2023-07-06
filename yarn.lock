@@ -3193,11 +3193,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/history@^4.7.11":
-  version "4.7.11"
-  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.11.tgz#56588b17ae8f50c53983a524fc3cc47437969d64"
-  integrity sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==
-
 "@types/hoist-non-react-statics@^3.3.0":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
@@ -3411,23 +3406,6 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
-
-"@types/react-router-dom@^5.3.3":
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
-  integrity sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==
-  dependencies:
-    "@types/history" "^4.7.11"
-    "@types/react" "*"
-    "@types/react-router" "*"
-
-"@types/react-router@*":
-  version "5.1.20"
-  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-5.1.20.tgz#88eccaa122a82405ef3efbcaaa5dcdd9f021387c"
-  integrity sha512-jGjmu/ZqS7FjSH6owMcD5qpq19+1RS9DeVRqfl1FeBMxTDQAGwlMWOcs52NDoXaNKyG3d1cYQFMs9rCrb88o9Q==
-  dependencies:
-    "@types/history" "^4.7.11"
-    "@types/react" "*"
 
 "@types/react@*":
   version "18.2.6"
@@ -5849,6 +5827,11 @@ dotenv@^16.0.0:
   version "16.0.3"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
   integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
+
+dotenv@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.1.tgz#369034de7d7e5b120972693352a3bf112172cc3e"
+  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
 
 duplexer@^0.1.2:
   version "0.1.2"

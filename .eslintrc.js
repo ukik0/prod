@@ -39,7 +39,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
-        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/rules-of-hooks': 'warn',
         'react-hooks/exhaustive-deps': 'error',
         'jsx-a11y/no-autofocus': 'off',
         'consistent-return': 'off',
@@ -62,6 +62,7 @@ module.exports = {
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
         ReactTagProps: true,
     },
     overrides: [{

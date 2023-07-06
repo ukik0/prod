@@ -16,13 +16,13 @@ interface renderComponentProps {
 export const renderComponent = ({ component, path = '/', initialState }: renderComponentProps) => {
     return (
         render(
-            <StoreProvider initialState={initialState}>
-                <MemoryRouter initialEntries={[path]}>
+            <MemoryRouter initialEntries={[path]}>
+                <StoreProvider initialState={initialState}>
                     <I18nextProvider i18n={i18nTesting}>
                         {component}
                     </I18nextProvider>
-                </MemoryRouter>
-            </StoreProvider>,
+                </StoreProvider>
+            </MemoryRouter>,
         )
     );
 };
