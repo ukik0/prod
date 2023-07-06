@@ -1,5 +1,7 @@
-import { clsx } from '@/shared/lib/helprers/classNames';
-import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { memo } from 'react';
+
+import { clsx } from '@/shared/lib/helprers/classnames';
+import { useTheme } from '@/shared/lib/hooks';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 
@@ -7,7 +9,7 @@ interface ThemeSwitcherProps extends ReactTagProps<'button'> {
     className?: string
 }
 
-export const ThemeSwitcher = ({ className, ...rest }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className, ...rest }: ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -15,4 +17,4 @@ export const ThemeSwitcher = ({ className, ...rest }: ThemeSwitcherProps) => {
             {theme === 'dark' ? <Icon name="theme/sun" /> : <Icon name="theme/moon" />}
         </Button>
     );
-};
+});

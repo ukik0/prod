@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { clsx } from '@/shared/lib/helprers/classnames';
 
 import cl from './Anchor.module.scss';
 
@@ -13,7 +13,7 @@ interface AnchorProps extends LinkProps {
     theme?: AnchorTheme
 }
 
-export const Anchor = ({
+export const Anchor = memo(({
     className, children, to, theme = 'primary', ...rest
 }: AnchorProps) => {
     return (
@@ -21,4 +21,4 @@ export const Anchor = ({
             {children}
         </Link>
     );
-};
+});

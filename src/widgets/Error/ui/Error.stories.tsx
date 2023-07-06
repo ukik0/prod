@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Error } from '@/widgets/Error';
+
+import { Error } from './Error';
 
 const meta: Meta<typeof Error> = {
     title: 'widgets/Error',

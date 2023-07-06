@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { clsx } from '@/shared/lib/helprers/classnames';
 import { Button } from '@/shared/ui/Button';
 import { Typography } from '@/shared/ui/Typography';
 
@@ -10,7 +11,7 @@ interface ErrorProps {
     className?: string
 }
 
-export const Error = ({ className }: ErrorProps) => {
+export const Error = memo(({ className }: ErrorProps) => {
     const { t } = useTranslation();
 
     const reloadPage = () => {
@@ -25,4 +26,4 @@ export const Error = ({ className }: ErrorProps) => {
             </Button>
         </div>
     );
-};
+});

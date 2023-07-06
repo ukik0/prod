@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import cl from './NotFoundPage.module.scss';
 
-export const NotFoundPage = () => {
+export const NotFoundPage = memo(() => {
     const { t } = useTranslation();
 
     return (
@@ -10,4 +11,4 @@ export const NotFoundPage = () => {
             {t('Страница не найдена')}
         </div>
     );
-};
+});

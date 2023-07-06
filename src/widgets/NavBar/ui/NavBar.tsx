@@ -1,11 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
+import {
+    memo, useCallback, useEffect, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { userActions } from '@/entities/User';
-import { getUserData } from '@/entities/User/model/selectors';
+import { userActions } from '@/entities/user';
+import { getUserData } from '@/entities/user/model/selectors';
 import { LoginModal } from '@/features/auth/by-username';
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { clsx } from '@/shared/lib/helprers/classnames';
 import { Button } from '@/shared/ui/Button';
 
 import cl from './NavBar.module.scss';
@@ -14,7 +16,7 @@ interface NavBarProps {
     className?: string;
 }
 
-export const NavBar = ({ className }: NavBarProps) => {
+export const NavBar = memo(({ className }: NavBarProps) => {
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const authData = useSelector(getUserData);
@@ -44,7 +46,7 @@ export const NavBar = ({ className }: NavBarProps) => {
             {isOpen && <LoginModal isOpen={isOpen} onClose={closeModalHandler} />}
         </div>
     );
-};
+});
 
 function AuthNavbar() {
     const { t } = useTranslation();

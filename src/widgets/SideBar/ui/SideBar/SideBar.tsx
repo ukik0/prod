@@ -1,14 +1,11 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { memo, useState } from 'react';
 
-import { RoutePaths } from '@/shared/config/routesConfig/routesConfig';
-import { clsx } from '@/shared/lib/helprers/classNames/classNames';
-import { Anchor } from '@/shared/ui/Anchor/Anchor';
+import { clsx } from '@/shared/lib/helprers/classnames';
 import { Button } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
 import { LanguageSwitcher } from '@/shared/ui/LanguageSwitcher/LanguageSwitcher';
 import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
-import { Typography } from '@/shared/ui/Typography';
+import { SidebarItems } from '@/widgets/SideBar/model/items';
+import { SidebarItem } from '@/widgets/SideBar/ui/sidebar-item/sidebar-item';
 
 import cl from './SideBar.module.scss';
 
@@ -16,7 +13,7 @@ interface SideBarProps {
     className?: string
 }
 
-export const SideBar = ({ className }: SideBarProps) => {
+export const SideBar = memo(({ className }: SideBarProps) => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
 
     const handleCollapse = () => {
@@ -39,32 +36,15 @@ export const SideBar = ({ className }: SideBarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <Items />
+            <div className={cl.items}>
+                {SidebarItems.map((item) => (
+                    <SidebarItem key={item.text} isCollapsed={collapsed} {...item} />
+                ))}
+            </div>
             <div className={cl.switchers}>
                 <ThemeSwitcher />
                 <LanguageSwitcher short={collapsed} />
             </div>
         </div>
     );
-};
-
-function Items() {
-    const { t } = useTranslation();
-
-    return (
-        <div className={cl.items}>
-            <div>
-                <Anchor className={cl.item} to={RoutePaths.main} theme="secondary">
-                    <Icon name="sidebar/home" className={cl.icon} />
-                    <Typography variant="text" className={cl.link}>{t('Главная')}</Typography>
-                </Anchor>
-            </div>
-            <div>
-                <Anchor className={cl.item} to={RoutePaths.about} theme="secondary">
-                    <Icon name="sidebar/about" className={cl.icon} />
-                    <Typography variant="text" className={cl.link}>{t('О нас')}</Typography>
-                </Anchor>
-            </div>
-        </div>
-    );
-}
+});

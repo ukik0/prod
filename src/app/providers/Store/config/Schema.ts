@@ -3,12 +3,14 @@ import {
 } from '@reduxjs/toolkit';
 
 import { CounterStateSchema } from '@/entities/Counter';
-import { UserStateSchema } from '@/entities/User';
-import { LoginSchema } from '@/features/AuthByUsername';
+import { ProfileStateSchema } from '@/entities/profile';
+import { UserStateSchema } from '@/entities/user';
+import { LoginSchema } from '@/features/auth/by-username';
 
 export interface StateSchema {
     counter: CounterStateSchema
     user: UserStateSchema
+    profile?: ProfileStateSchema
     login?: LoginSchema
 }
 

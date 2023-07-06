@@ -2,8 +2,8 @@ import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { AppRouter } from '@/app/providers/Router';
-import { userActions } from '@/entities/User';
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { userActions } from '@/entities/user';
+import { clsx } from '@/shared/lib/helprers/classnames';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { NavBar } from '@/widgets/NavBar';
 import { SideBar } from '@/widgets/SideBar';

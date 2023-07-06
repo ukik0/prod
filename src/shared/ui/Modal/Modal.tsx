@@ -2,7 +2,7 @@ import {
     MouseEvent, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { clsx } from '@/shared/lib/helprers/classnames';
 import { Portal } from '@/shared/ui/Portal';
 
 import cl from './Modal.module.scss';

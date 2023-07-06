@@ -1,6 +1,6 @@
-import { SVGProps } from 'react';
+import { memo, SVGProps } from 'react';
 
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { clsx } from '@/shared/lib/helprers/classnames';
 
 import cl from './icon.module.scss';
 import { SpritesMap } from './sprite.h';
@@ -13,7 +13,7 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name' | 'type'
     name: SpriteKey
 }
 
-export const Icon = ({
+export const Icon = memo(({
     name, className, viewBox, ...props
 }: IconProps) => {
     const [spriteName, iconName] = name.split('/');
@@ -29,4 +29,4 @@ export const Icon = ({
             <use xlinkHref={`./sprite/${spriteName}.svg#${iconName}`} />
         </svg>
     );
-};
+});

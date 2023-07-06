@@ -1,4 +1,6 @@
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { memo } from 'react';
+
+import { clsx } from '@/shared/lib/helprers/classnames';
 
 import cl from './Button.module.scss';
 
@@ -13,7 +15,7 @@ interface ButtonProps extends ReactTagProps<'button'> {
     disabled?: boolean
 }
 
-export const Button = ({
+export const Button = memo(({
     className, size = 'XL', square, children, disabled, theme = 'outline', ...rest
 }: ButtonProps) => (
     <button
@@ -29,4 +31,4 @@ export const Button = ({
     >
         {children}
     </button>
-);
+));

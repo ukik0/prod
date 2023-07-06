@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { clsx } from '@/shared/lib/helprers/classnames';
 
 import cl from './Typography.module.scss';
 
@@ -14,7 +14,7 @@ interface TypographyProps {
     className?: string;
 }
 
-export const Typography = ({
+export const Typography = memo(({
     children, tag = 'div', variant, className,
 }: TypographyProps) => {
     const Component = tag;
@@ -27,4 +27,4 @@ export const Typography = ({
             {children}
         </Component>
     );
-};
+});

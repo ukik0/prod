@@ -6,7 +6,7 @@ import { loginByUsername } from '@/features/auth/by-username/model/actions';
 import * as selectors from '@/features/auth/by-username/model/selectors';
 import { loginActions, LoginReducer } from '@/features/auth/by-username/model/slice';
 import { DynamicModuleLoader, Reducers } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { clsx } from '@/shared/lib/helprers/classNames';
+import { clsx } from '@/shared/lib/helprers/classnames';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Typography } from '@/shared/ui/Typography';

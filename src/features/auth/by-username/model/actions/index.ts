@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import { User, userActions } from '@/entities/User';
+import { User, userActions } from '@/entities/user';
 import { AUTH_KEY_LS } from '@/shared/constants/localStorage';
 
 interface AuthData {
