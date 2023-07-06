@@ -21,6 +21,6 @@ describe('classNames', () => {
         })).toBe('someClass someClass2 class2');
     });
     test('with falsy values', () => {
-        expect(clsx({ cls: null, mods: { class2: undefined, class3: null }, additional: [undefined] })).toBe('');
+        expect(clsx({ cls: undefined, mods: { class2: false, class3: false }, additional: [undefined] })).toBe('');
     });
 });

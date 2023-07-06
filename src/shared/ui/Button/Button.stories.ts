@@ -16,7 +16,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
     args: {
         children: 'Primary',
-        theme: null,
+        theme: undefined,
     },
 };
 

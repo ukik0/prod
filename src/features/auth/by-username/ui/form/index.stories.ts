@@ -10,7 +10,7 @@ const meta: Meta<typeof LoginForm> = {
     tags: ['autodocs'],
     decorators: [StoreDecorator({
         login: {
-            username: 'user', password: 'password', error: null, isLoading: false,
+            username: 'user', password: 'password', error: undefined, isLoading: false,
         },
     })],
 };

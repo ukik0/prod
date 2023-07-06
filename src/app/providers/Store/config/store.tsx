@@ -1,4 +1,6 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+    CombinedState, configureStore, Reducer, ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
 
 import { StateSchema } from '@/app/providers/Store';
@@ -20,7 +22,7 @@ export const createStore = (initialState: StateSchema, asyncReducers: ReducersMa
     const navigate = useNavigate();
 
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({

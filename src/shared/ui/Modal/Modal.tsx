@@ -48,6 +48,8 @@ export const Modal = ({
         }
 
         return () => {
+            if (!timerRef.current) return;
+
             clearTimeout(timerRef.current);
             window.removeEventListener('keydown', handleKeyDown);
         };

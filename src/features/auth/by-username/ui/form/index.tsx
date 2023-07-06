@@ -43,7 +43,9 @@ function Error() {
     const { t } = useTranslation();
     const error = useSelector(selectors.getLoginError);
 
-    return (error && <Typography variant="error" tag="span">{t('Вы ввели неверный логин или пароль')}</Typography>);
+    if (!error) return null;
+
+    return <Typography variant="error" tag="span">{t('Вы ввели неверный логин или пароль')}</Typography>;
 }
 
 function UsernameInput() {

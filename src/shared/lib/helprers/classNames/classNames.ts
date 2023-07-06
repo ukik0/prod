@@ -1,7 +1,7 @@
 interface classNamesProps {
     cls?: string
     mods?: Record<string, boolean | string>
-    additional?: string[]
+    additional?: (string | undefined)[]
 }
 
 export const clsx = ({ cls = '', mods = {}, additional = [] }: classNamesProps): string => {

@@ -4,7 +4,7 @@ import { THEME_KEY_LS } from '../../constants/localStorage';
 import { ThemeContext, Themes } from '../context/ThemeContext';
 
 interface ThemeReturnProps {
-    theme: Themes
+    theme: Themes | undefined
     toggleTheme: () => void
 }
 

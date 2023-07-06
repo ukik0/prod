@@ -8,7 +8,7 @@ const meta: Meta<typeof LoginModal> = {
     title: 'features/LoginModal',
     component: LoginModal,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({ user: { authData: null } })],
+    decorators: [StoreDecorator({ user: { authData: undefined } })],
 };
 
 export default meta;

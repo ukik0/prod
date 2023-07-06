@@ -16,7 +16,7 @@ interface ButtonProps extends ReactTagProps<'button'> {
 }
 
 export const Button = memo(({
-    className, size = 'XL', square, children, disabled, theme = 'outline', ...rest
+    className, size = 'XL', square = false, children, disabled = false, theme = 'outline', ...rest
 }: ButtonProps) => (
     <button
         data-test-id="button"

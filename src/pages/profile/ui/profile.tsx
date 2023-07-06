@@ -1,8 +1,9 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ProfileReducer } from '@/entities/profile';
+import { fetchProfile, ProfileCard, ProfileReducer } from '@/entities/profile';
 import { DynamicModuleLoader, Reducers } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks';
 
 const INITIAL_REDUCER: Reducers = {
     profile: ProfileReducer,
@@ -10,12 +11,15 @@ const INITIAL_REDUCER: Reducers = {
 
 const ProfilePage = () => {
     const { t } = useTranslation('');
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProfile());
+    }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={INITIAL_REDUCER} removeAfterUnmount>
-            <div>
-                profile page
-            </div>
+            <ProfileCard />
         </DynamicModuleLoader>
     );
 };

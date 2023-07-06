@@ -24,3 +24,7 @@ declare const __API__: string;
 type ReactTagProps<T> = import('react').ComponentPropsWithRef<T>;
 
 type AppThemes = 'light' | 'dark'
+
+type DeepPartial<T> = T extends object ? {
+    [P in keyof T]?: DeepPartial<T[P]>;
+} : T;
