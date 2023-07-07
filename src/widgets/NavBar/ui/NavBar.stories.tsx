@@ -8,7 +8,7 @@ const meta: Meta<typeof NavBar> = {
     title: 'widgets/NavBar',
     component: NavBar,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({ user: { authData: null } })],
+    decorators: [StoreDecorator({ user: { authData: undefined } })],
 };
 
 export default meta;

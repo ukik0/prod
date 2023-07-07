@@ -10,8 +10,6 @@ export type Reducers = {
     [key in StateSchemaKeys]?: Reducer
 }
 
-type ReducerEntries = [keyof Reducers, Reducer]
-
 interface DynamicModuleLoaderProps {
     reducers: Reducers
     children: JSX.Element

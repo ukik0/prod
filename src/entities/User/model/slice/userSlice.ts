@@ -4,7 +4,7 @@ import { User, UserStateSchema } from '@/entities/user';
 import { AUTH_KEY_LS } from '@/shared/constants';
 
 const initialState: UserStateSchema = {
-    authData: null,
+    authData: undefined,
 };
 
 export const userSlice = createSlice({
@@ -22,7 +22,7 @@ export const userSlice = createSlice({
             }
         },
         logout: (state) => {
-            state.authData = null;
+            state.authData = undefined;
             localStorage.removeItem(AUTH_KEY_LS);
         },
     },

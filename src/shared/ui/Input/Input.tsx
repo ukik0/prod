@@ -7,7 +7,7 @@ import { Typography } from '@/shared/ui/Typography';
 
 import cl from './Input.module.scss';
 
-type HTMLInput = Omit<ReactTagProps<'input'>, 'value' | 'onChange'>
+type HTMLInput = Omit<ReactTagProps<'input'>, 'value' | 'onChange' | 'readonly'>
 
 interface InputProps extends HTMLInput {
     className?: string
@@ -15,14 +15,17 @@ interface InputProps extends HTMLInput {
     onChange?: (value: string) => void
     placeholder?: string
     autoFocus?: boolean
+    readonly?: boolean
 }
 
 export const Input = memo(({
-    className, value, onChange, placeholder, autoFocus, type = 'text', ...rest
+    className, value, onChange, placeholder, autoFocus, type = 'text', readonly, ...rest
 }: InputProps) => {
     const [isFocus, setIsFocus] = useState<boolean>(false);
     const [position, setPosition] = useState<number>(0);
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const isCarriageVisible = isFocus && !readonly;
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
@@ -71,9 +74,10 @@ export const Input = memo(({
                     onChange={changeHandler}
                     onSelect={onSelect}
                     className={cl.input}
+                    readOnly={readonly}
                     {...rest}
                 />
-                {isFocus && <span className={cl.carriage} style={{ left: `${position * 9}px` }} />}
+                {isCarriageVisible && <span className={cl.carriage} style={{ left: `${position * 9}px` }} />}
             </div>
         </div>
     );
