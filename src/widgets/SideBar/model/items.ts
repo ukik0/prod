@@ -5,6 +5,7 @@ export interface SidebarItemProps {
     path: string
     icon: IconProps['name']
     text: string
+    authOnly?: boolean
 }
 
 export const SidebarItems: SidebarItemProps[] = [
@@ -22,5 +23,6 @@ export const SidebarItems: SidebarItemProps[] = [
         path: RoutePaths.profile,
         text: 'Профиль',
         icon: 'sidebar/profile',
+        authOnly: true,
     },
 ];
