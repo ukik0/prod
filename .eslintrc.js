@@ -64,6 +64,7 @@ module.exports = {
         __IS_DEV__: true,
         __API__: true,
         ReactTagProps: true,
+        __PROJECT__: true,
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],

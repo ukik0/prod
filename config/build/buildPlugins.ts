@@ -11,7 +11,9 @@ import { BuildOptions } from './types/config';
 
 dotenv.config();
 
-export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({
+    paths, isDev, apiUrl, project,
+}: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({ template: paths.html }),
         new webpack.ProgressPlugin(),
@@ -19,6 +21,7 @@ export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): webpack.We
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             'process.env': JSON.stringify(process.env),
+            __PROJECT__: JSON.stringify(project),
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',

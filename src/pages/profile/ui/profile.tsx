@@ -24,10 +24,6 @@ const ProfilePage = () => {
     const error = useSelector(model.getProfileError);
     const readonly = useSelector(model.getProfileReadonly);
 
-    useEffect(() => {
-        dispatch(fetchProfile());
-    }, [dispatch]);
-
     const onChangeFirstname = useCallback(
         (value?: string) => {
             dispatch(ProfileActions.updateProfile({ first: value || '' }));
@@ -83,6 +79,12 @@ const ProfilePage = () => {
         },
         [dispatch],
     );
+
+    useEffect(() => {
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfile());
+        }
+    }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={INITIAL_REDUCER} removeAfterUnmount>

@@ -1,26 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
+import { StateSchema } from '@/app/providers/Store';
 import { Countries } from '@/entities/country';
 import { Currency } from '@/entities/currency';
-import { ProfilePage } from '@/pages/profile';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { getProfileForm } from '@/entities/profile/model/selectors';
 
-const meta: Meta<typeof ProfilePage> = {
-    title: 'pages/ProfilePage',
-    component: ProfilePage,
-    tags: ['autodocs'],
-};
-
-export default meta;
-
-type Story = StoryObj<typeof ProfilePage>;
-
-export const Light: Story = { args: {} };
-
-Light.decorators = [StoreDecorator({
-    profile: {
-        form: {
+describe('get-profile-form', () => {
+    test('should be equal data', () => {
+        const form = {
             currency: Currency.RUB,
             avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe5wLyzZUPYlpXhD7T2DGZwR6CBnOeZqXohnLIGRcQHw&s',
             city: 'city',
@@ -29,15 +14,18 @@ Light.decorators = [StoreDecorator({
             age: 20,
             country: Countries.Ukraine,
             lastname: 'lastname',
-        },
-    },
-})];
+        };
 
-export const Dark: Story = { args: {} };
+        const state: DeepPartial<StateSchema> = {
+            profile: {
+                form,
+            },
+        };
 
-Dark.decorators = [ThemeDecorator({ theme: 'dark' }), StoreDecorator({
-    profile: {
-        form: {
+        expect(getProfileForm(state as StateSchema)).toEqual(form);
+    });
+    test('empty state', () => {
+        const data = {
             currency: Currency.RUB,
             avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe5wLyzZUPYlpXhD7T2DGZwR6CBnOeZqXohnLIGRcQHw&s',
             city: 'city',
@@ -46,6 +34,12 @@ Dark.decorators = [ThemeDecorator({ theme: 'dark' }), StoreDecorator({
             age: 20,
             country: Countries.Ukraine,
             lastname: 'lastname',
-        },
-    },
-})];
+        };
+
+        const state: DeepPartial<StateSchema> = {
+
+        };
+
+        expect(getProfileForm(state as StateSchema)).toEqual(undefined);
+    });
+});

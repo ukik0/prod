@@ -13,7 +13,7 @@ export const fetchProfile = createAsyncThunk<Profile, void, ThunkConfig<string>>
             const response = await extra.api.get<Profile>('/profile');
 
             if (!response.data) {
-                throw new Error();
+                throw new Error('Error');
             }
 
             return response.data;
