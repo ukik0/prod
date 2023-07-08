@@ -9,7 +9,7 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
-    const [theme, setTheme] = useState<'light' | 'dark'>(initialTheme || (localStorage.getItem(THEME_KEY_LS) as Themes || 'light'));
+    const [theme, setTheme] = useState<Themes>(initialTheme || (localStorage.getItem(THEME_KEY_LS) as Themes || 'light'));
 
     const themeProps = useMemo(() => ({ theme, setTheme }), [theme]);
 

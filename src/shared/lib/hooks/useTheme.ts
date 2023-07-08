@@ -12,7 +12,20 @@ export const useTheme = (): ThemeReturnProps => {
     const { theme, setTheme } = useContext(ThemeContext);
 
     const toggleTheme = () => {
-        const currentTheme = theme === 'light' ? 'dark' : 'light';
+        let currentTheme: Themes;
+
+        switch (theme) {
+        case 'light':
+            currentTheme = 'orange';
+            break;
+        case 'dark':
+            currentTheme = 'light';
+            break;
+        case 'orange':
+            currentTheme = 'dark';
+            break;
+        default: currentTheme = 'dark';
+        }
 
         setTheme(currentTheme);
 
