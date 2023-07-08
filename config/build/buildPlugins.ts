@@ -1,6 +1,6 @@
 // @ts-ignore
 import svg from '@neodx/svg/webpack';
-import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -42,7 +42,8 @@ export function buildPlugins({
     ];
 
     if (isDev) {
-        plugins.push(new ReactRefreshPlugin({}));
+        plugins.push(new ReactRefreshWebpackPlugin());
+        plugins.push(new webpack.HotModuleReplacementPlugin());
         // @ts-ignore
         plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
     }
