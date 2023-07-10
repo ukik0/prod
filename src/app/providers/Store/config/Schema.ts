@@ -5,16 +5,17 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions } from 'react-router';
 import { To } from 'react-router-dom';
 
-import { CounterStateSchema } from '@/entities/Counter';
+import { ArticleDetailsStateSchema } from '@/entities/article';
 import { ProfileStateSchema } from '@/entities/profile';
 import { UserStateSchema } from '@/entities/user';
 import { LoginSchema } from '@/features/auth/by-username';
 
 export interface StateSchema {
-    counter: CounterStateSchema
     user: UserStateSchema
+
     profile?: ProfileStateSchema
     login?: LoginSchema
+    articleDetails?: ArticleDetailsStateSchema
 }
 
 export type StateSchemaKeys = keyof StateSchema
