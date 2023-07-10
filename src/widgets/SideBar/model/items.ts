@@ -25,4 +25,10 @@ export const SidebarItems: SidebarItemProps[] = [
         icon: 'sidebar/profile',
         authOnly: true,
     },
+    {
+        path: RoutePaths.articles,
+        text: 'Статьи',
+        icon: 'sidebar/articles',
+        authOnly: true,
+    },
 ];

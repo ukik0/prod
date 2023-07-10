@@ -33,7 +33,6 @@ export function buildPlugins({
         svg({
             root: 'src/shared/assets/icons',
             output: 'public/sprite',
-            definitions: 'src/shared/ui/icon/sprite-definitions.ts',
             group: true,
             resetColors: {
                 replaceUnknown: 'currentColor',
