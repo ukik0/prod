@@ -33,17 +33,20 @@ export function buildPlugins({
         svg({
             root: 'src/shared/assets/icons',
             output: 'public/sprite',
+            definitions: 'src/shared/ui/icon/sprite-h.ts',
             group: true,
+            input: '**/*.svg',
             resetColors: {
                 replaceUnknown: 'currentColor',
             },
+            optimize: true,
+            logLevel: 'info',
         }),
     ];
 
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin());
         plugins.push(new webpack.HotModuleReplacementPlugin());
-        // @ts-ignore
         plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
     }
     return plugins;

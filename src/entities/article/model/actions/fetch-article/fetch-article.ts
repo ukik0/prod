@@ -5,7 +5,7 @@ import { ThunkConfig } from '@/app/providers/Store/config/Schema';
 import { Article } from '../../types/index';
 
 export const fetchArticle = createAsyncThunk<Article, string, ThunkConfig<string>>(
-    'profile/fetch-article',
+    'article/fetch-article',
     async (articleId, thunkAPI) => {
         const { rejectWithValue, extra } = thunkAPI;
 

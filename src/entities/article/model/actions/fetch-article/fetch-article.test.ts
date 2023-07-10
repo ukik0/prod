@@ -1,21 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
-import { Article, ArticleBlockType, ArticleType } from '@/entities/article';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-
-import ArticleDetails from './article-details';
-
-const meta: Meta<typeof ArticleDetails> = {
-    title: 'pages/ArticleDetails',
-    component: ArticleDetails,
-    tags: ['autodocs'],
-    args: {},
-};
-
-export default meta;
-
-type Story = StoryObj<typeof ArticleDetails>;
+import {
+    Article, ArticleBlockType, ArticleType, fetchArticle,
+} from '@/entities/article';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
 
 const article: Article = {
     id: '1',
@@ -55,18 +41,31 @@ const article: Article = {
             ],
         },
     ],
-}; export const Default: Story = {
-    args: {
-
-    },
 };
 
-Default.decorators = [StoreDecorator({ articleDetails: { data: article } })];
+describe('fetch-article', () => {
+    test('success fetch', async () => {
+        const thunk = new TestAsyncThunk(fetchArticle);
 
-export const DarkMode: Story = {
-    args: {
+        thunk.api.get.mockReturnValue(Promise.resolve({ article }));
 
-    },
-};
+        const result = await thunk.callThunk('1');
+        console.log(result);
 
-DarkMode.decorators = [ThemeDecorator({ theme: 'dark' }), StoreDecorator({ articleDetails: { data: article } })];
+        expect(thunk.api.get).toHaveBeenCalled();
+        // expect(result.meta.requestStatus).toBe('fulfilled');
+        // expect(result.payload).toEqual(article);
+    });
+
+    test('error fetch', async () => {
+        const thunk = new TestAsyncThunk(fetchArticle);
+
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
+
+        const result = await thunk.callThunk('1');
+
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('rejected');
+        expect(result.payload).toBe('Ошибка получения статьи');
+    });
+});

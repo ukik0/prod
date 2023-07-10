@@ -3,7 +3,7 @@ import { memo, SVGProps } from 'react';
 import { clsx } from '@/shared/lib/helprers/classnames';
 
 import cl from './icon.module.scss';
-import { SpritesMap } from './sprite.h';
+import { SpritesMap } from './sprite-h';
 
 export type SpriteKey = {
     [Key in keyof SpritesMap]: `${Key}/${SpritesMap[Key]}`
