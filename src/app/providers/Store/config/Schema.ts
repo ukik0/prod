@@ -8,6 +8,7 @@ import { To } from 'react-router-dom';
 import { ArticleDetailsStateSchema } from '@/entities/article';
 import { ProfileStateSchema } from '@/entities/profile';
 import { UserStateSchema } from '@/entities/user';
+import { AddCommentStateSchema } from '@/features/add-comment/model/types';
 import { LoginSchema } from '@/features/auth/by-username';
 import { ArticleDetailsCommentSchema } from '@/pages/article-details';
 
@@ -18,6 +19,7 @@ export interface StateSchema {
     login?: LoginSchema
     articleDetails?: ArticleDetailsStateSchema
     comments?: ArticleDetailsCommentSchema
+    addComment?: AddCommentStateSchema
 }
 
 export type StateSchemaKeys = keyof StateSchema

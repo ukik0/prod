@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CommentList } from './comment-list';
 
 const meta: Meta<typeof CommentList> = {
-    title: 'shared/CommentList',
+    title: 'entities/CommentList',
     component: CommentList,
     tags: ['autodocs'],
     args: {},

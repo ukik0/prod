@@ -5,7 +5,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { CommentCard } from './comment-card';
 
 const meta: Meta<typeof CommentCard> = {
-    title: 'shared/CommentCard',
+    title: 'entities/CommentCard',
     component: CommentCard,
     tags: ['autodocs'],
     args: {},

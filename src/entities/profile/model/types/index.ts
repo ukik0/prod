@@ -2,6 +2,7 @@ import { Countries } from '@/entities/country';
 import { Currency } from '@/entities/currency/model/types';
 
 export interface Profile {
+    id?: string
     first?: string
     lastname?: string
     age?: number

@@ -1,9 +1,13 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/article';
 import { CommentList } from '@/entities/comment';
+import { AddCommentForm } from '@/features/add-comment';
+import {
+    createArticleComment,
+} from '@/pages/article-details/model/actions/create-article-comment/create-article-comment';
 import { fetchComments } from '@/pages/article-details/model/actions/fetch-comments/fetch-comments';
 import {
     ArticleDetailsCommentReducer,
@@ -35,6 +39,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsProps) => {
     const isLoading = useSelector(model.getArticleCommentIsLoading);
     const error = useSelector(model.getArticleCommentError);
 
+    const handleSendComment = useCallback((text: string) => {
+        dispatch(createArticleComment(text));
+    }, [dispatch]);
+
     useInitialEffect(() => {
         dispatch(fetchComments(id));
     });
@@ -48,6 +56,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsProps) => {
                 <Typography variant="title-2">
                     Комментарии
                 </Typography>
+                <AddCommentForm onSendComment={handleSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
             </div>
         </DynamicModuleLoader>

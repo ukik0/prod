@@ -62,7 +62,7 @@ describe('profile slice', () => {
             isLoading: true,
         };
 
-        expect(ProfileReducer(state, updateProfile.fulfilled(data, ''))).toEqual({
+        expect(ProfileReducer(state, updateProfile.fulfilled(data, '', '1'))).toEqual({
             isLoading: false, error: undefined, data, form: data, readonly: true,
         });
     });

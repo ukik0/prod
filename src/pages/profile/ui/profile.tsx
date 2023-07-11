@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { Countries } from '@/entities/country';
 import { Currency } from '@/entities/currency/model/types';
@@ -18,6 +19,8 @@ const INITIAL_REDUCER: Reducers = {
 
 const ProfilePage = () => {
     const dispatch = useAppDispatch();
+
+    const { id } = useParams<{id: string}>();
 
     const formData = useSelector(model.getProfileForm);
     const isLoading = useSelector(model.getProfileLoading);
@@ -81,13 +84,13 @@ const ProfilePage = () => {
     );
 
     useInitialEffect(() => {
-        dispatch(fetchProfile);
+        dispatch(fetchProfile(id));
     });
 
     return (
         <DynamicModuleLoader reducers={INITIAL_REDUCER} removeAfterUnmount>
             <>
-                <ProfileHeader />
+                <ProfileHeader id={id} />
                 <ProfileCard
                     onChangeFirstname={onChangeFirstname}
                     onChangeAge={onChangeAge}
