@@ -6,9 +6,10 @@ import {
 } from '@/entities/article';
 import * as model from '@/entities/article/model/selectors';
 import { ArticleDetailsReducer } from '@/entities/article/model/slice/article-details';
+import { fetchComments } from '@/pages/article-details/model/actions/fetch-comments/fetch-comments';
 import { DynamicModuleLoader, Reducers } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { clsx } from '@/shared/lib/helprers/classnames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks';
+import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
 import { Icon } from '@/shared/ui/Icon';
 import { Typography } from '@/shared/ui/Typography';
 import { Avatar } from '@/shared/ui/avatar';
@@ -45,11 +46,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
     let content;
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticle(id));
-        }
-    }, [id, dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchArticle(id));
+    });
 
     if (isLoading) {
         content = <IsLoading />;

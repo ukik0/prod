@@ -8,7 +8,7 @@ import {
 } from '@/entities/profile';
 import * as model from '@/entities/profile/model/selectors';
 import { DynamicModuleLoader, Reducers } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks';
+import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
 
 import { ProfileHeader } from './profile-header/profile-header';
 
@@ -80,11 +80,9 @@ const ProfilePage = () => {
         [dispatch],
     );
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfile());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfile);
+    });
 
     return (
         <DynamicModuleLoader reducers={INITIAL_REDUCER} removeAfterUnmount>

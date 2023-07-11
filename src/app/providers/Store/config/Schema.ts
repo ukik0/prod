@@ -9,6 +9,7 @@ import { ArticleDetailsStateSchema } from '@/entities/article';
 import { ProfileStateSchema } from '@/entities/profile';
 import { UserStateSchema } from '@/entities/user';
 import { LoginSchema } from '@/features/auth/by-username';
+import { ArticleDetailsCommentSchema } from '@/pages/article-details';
 
 export interface StateSchema {
     user: UserStateSchema
@@ -16,6 +17,7 @@ export interface StateSchema {
     profile?: ProfileStateSchema
     login?: LoginSchema
     articleDetails?: ArticleDetailsStateSchema
+    comments?: ArticleDetailsCommentSchema
 }
 
 export type StateSchemaKeys = keyof StateSchema

@@ -50,7 +50,6 @@ describe('fetch-article', () => {
         thunk.api.get.mockReturnValue(Promise.resolve({ article }));
 
         const result = await thunk.callThunk('1');
-        console.log(result);
 
         expect(thunk.api.get).toHaveBeenCalled();
         // expect(result.meta.requestStatus).toBe('fulfilled');
