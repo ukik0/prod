@@ -1,11 +1,13 @@
 import { memo, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { clsx } from '@/shared/lib/helprers/classnames';
 import { Button } from '@/shared/ui/Button';
 import { LanguageSwitcher } from '@/shared/ui/LanguageSwitcher/LanguageSwitcher';
 import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
-import { SidebarItems } from '@/widgets/SideBar/model/items';
 import { SidebarItem } from '@/widgets/SideBar/ui/sidebar-item/sidebar-item';
+
+import { getSidebarList } from '../../model/selectors';
 
 import cl from './SideBar.module.scss';
 
@@ -15,6 +17,8 @@ interface SideBarProps {
 
 export const SideBar = memo(({ className }: SideBarProps) => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
+
+    const sidebarItems = useSelector(getSidebarList);
 
     const handleCollapse = () => {
         setCollapsed((prev) => !prev);
@@ -37,7 +41,7 @@ export const SideBar = memo(({ className }: SideBarProps) => {
                 {collapsed ? '>' : '<'}
             </Button>
             <div className={cl.items}>
-                {SidebarItems.map((item) => (
+                {sidebarItems.map((item) => (
                     <SidebarItem key={item.text} isCollapsed={collapsed} {...item} />
                 ))}
             </div>

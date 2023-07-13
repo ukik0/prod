@@ -7,8 +7,7 @@ import { clsx } from '@/shared/lib/helprers/classnames';
 import { Anchor } from '@/shared/ui/Anchor/Anchor';
 import { Icon } from '@/shared/ui/Icon';
 import { Typography } from '@/shared/ui/Typography';
-
-import { SidebarItemProps } from '../../model/items';
+import { SidebarItemProps } from '@/widgets/SideBar/model/types';
 
 import cl from './sidebar-item.module.scss';
 
