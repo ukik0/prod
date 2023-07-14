@@ -18,8 +18,6 @@ interface ArticleListProps {
 export const ArticleList = memo(({
     className, articles, view = ArticleView.SMALL, isLoading,
 }: ArticleListProps) => {
-    if (!articles.length) return null;
-
     const renderArticle = (article: Article) => {
         return <ArticleListItem key={article.id} article={article} view={view} />;
     };

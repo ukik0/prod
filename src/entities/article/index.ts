@@ -2,7 +2,9 @@ export {
     ArticleBlockBase, Article, ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock, ArticleBlock,
 } from './model/types';
 export { ArticleDetailsStateSchema } from './model/types/schema';
-export { ArticleView, ArticleBlockType, ArticleType } from './model/types/enums';
+export {
+    ArticleView, ArticleBlockType, ArticleType, ArticleSortField,
+} from './model/types/enums';
 
 export { ArticleDetails } from './ui/article-details/article-details';
 export { ArticleList } from './ui/article-list/article-list';
