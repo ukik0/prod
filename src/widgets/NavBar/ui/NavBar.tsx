@@ -38,13 +38,13 @@ export const NavBar = memo(({ className }: NavBarProps) => {
     if (authData) return <AuthNavbar />;
 
     return (
-        <div className={clsx({ cls: cl.Navbar, additional: [className] })}>
+        <header className={clsx({ cls: cl.Navbar, additional: [className] })}>
             <Button size="M" onClick={showModalHandler} theme="clearInverted" className={cl.links}>
                 {t('Войти')}
             </Button>
 
             {isOpen && <LoginModal isOpen={isOpen} onClose={closeModalHandler} />}
-        </div>
+        </header>
     );
 });
 
@@ -57,10 +57,10 @@ function AuthNavbar() {
     };
 
     return (
-        <div className={clsx({ cls: cl.Navbar })}>
+        <header className={clsx({ cls: cl.Navbar })}>
             <Button size="M" onClick={handleLogout} theme="clearInverted" className={cl.links}>
                 {t('Выйти')}
             </Button>
-        </div>
+        </header>
     );
 }

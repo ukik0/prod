@@ -15,10 +15,3 @@
     display: flex;
     align-items: flex-start;
 }
-
-.page-wrapper {
-    flex: 1;
-    padding: 20px 20px 20px 45px;
-    height: 100vh - var(--navbar-height);
-    overflow-y: auto;
-}

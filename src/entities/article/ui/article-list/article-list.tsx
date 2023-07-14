@@ -15,6 +15,16 @@ interface ArticleListProps {
   view?: ArticleView;
 }
 
+const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
+    .fill(0)
+    .map((item, index) => (
+        <ArticleListItemSkeleton
+            className={cl.card}
+            key={index}
+            view={view}
+        />
+    ));
+
 export const ArticleList = memo(({
     className, articles, view = ArticleView.SMALL, isLoading,
 }: ArticleListProps) => {
@@ -22,11 +32,10 @@ export const ArticleList = memo(({
         return <ArticleListItem key={article.id} article={article} view={view} />;
     };
 
-    if (isLoading) return (<div className={clsx({ cls: cl.ArticleList, additional: [className, cl[view]] })}>{Array.from({ length: view === ArticleView.SMALL ? 12 : 3 }, (_, index) => <ArticleListItemSkeleton key={index} view={view} />)}</div>);
-
     return (
         <div className={clsx({ cls: cl.ArticleList, additional: [className, cl[view]] })}>
             {articles.map(renderArticle)}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });

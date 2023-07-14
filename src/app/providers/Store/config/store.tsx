@@ -16,8 +16,6 @@ export const createStore = (initialState: StateSchema, asyncReducers: ReducersMa
 
     const reducerManager = createReducerManager(reducer);
 
-    const navigate = useNavigate();
-
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
@@ -26,7 +24,6 @@ export const createStore = (initialState: StateSchema, asyncReducers: ReducersMa
             thunk: {
                 extraArgument: {
                     api: apiInstance,
-                    navigate,
                 },
             },
         }),

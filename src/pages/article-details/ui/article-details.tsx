@@ -17,6 +17,7 @@ import { DynamicModuleLoader, Reducers } from '@/shared/lib/components/DynamicMo
 import { clsx } from '@/shared/lib/helprers/classnames/classNames';
 import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
 import { Typography } from '@/shared/ui/Typography';
+import { Paper } from '@/widgets/paper';
 
 import * as model from '../model/selectors';
 
@@ -51,14 +52,14 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={INITIAL_REDUCER} removeAfterUnmount>
-            <div className={clsx({ cls: cl.ArticleDetails, additional: [className] })}>
+            <Paper className={clsx({ cls: cl.ArticleDetails, additional: [className] })}>
                 <ArticleDetails id={id} />
                 <Typography variant="title-2">
                     Комментарии
                 </Typography>
                 <AddCommentForm onSendComment={handleSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
-            </div>
+            </Paper>
         </DynamicModuleLoader>
     );
 };

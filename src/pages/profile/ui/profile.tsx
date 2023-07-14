@@ -10,6 +10,7 @@ import {
 import * as model from '@/entities/profile/model/selectors';
 import { DynamicModuleLoader, Reducers } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
+import { Paper } from '@/widgets/paper';
 
 import { ProfileHeader } from './profile-header/profile-header';
 
@@ -89,7 +90,7 @@ const ProfilePage = () => {
 
     return (
         <DynamicModuleLoader reducers={INITIAL_REDUCER} removeAfterUnmount>
-            <>
+            <Paper>
                 <ProfileHeader id={id} />
                 <ProfileCard
                     onChangeFirstname={onChangeFirstname}
@@ -105,7 +106,7 @@ const ProfilePage = () => {
                     error={error}
                     readonly={readonly}
                 />
-            </>
+            </Paper>
         </DynamicModuleLoader>
     );
 };
