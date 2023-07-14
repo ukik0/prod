@@ -3,6 +3,7 @@
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+    color: var(--inverted-primary-color);
 }
 
 .link{
@@ -10,6 +11,7 @@
     white-space: nowrap;
     transition: .3s all ease;
     max-width: 100%;
+    color: var(--inverted-primary-color);
 
     &.collapsed {
         opacity: 0;

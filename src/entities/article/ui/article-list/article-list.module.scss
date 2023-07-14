@@ -1,0 +1,15 @@
+.ArticleList {
+    display: flex;
+    gap: 15px;
+}
+
+.BIG {
+    width: 100%;
+    flex-direction: column;
+}
+
+.SMALL {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
