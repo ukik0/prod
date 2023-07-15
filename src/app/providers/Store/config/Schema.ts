@@ -10,11 +10,13 @@ import { ProfileStateSchema } from '@/entities/profile';
 import { UserStateSchema } from '@/entities/user';
 import { AddCommentStateSchema } from '@/features/add-comment/model/types';
 import { LoginSchema } from '@/features/auth/by-username';
+import { ScrollPositionPersistenceSchema } from '@/features/scroll-position-persistence';
 import { ArticleDetailsCommentSchema } from '@/pages/article-details';
 import { ArticlesStateSchema } from '@/pages/articles';
 
 export interface StateSchema {
     user: UserStateSchema
+    scrollPersistence: ScrollPositionPersistenceSchema
 
     profile?: ProfileStateSchema
     login?: LoginSchema

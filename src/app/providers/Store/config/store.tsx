@@ -1,16 +1,17 @@
 import {
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { useNavigate } from 'react-router-dom';
 
 import { StateSchema } from '@/app/providers/Store';
 import { createReducerManager } from '@/app/providers/Store/config/reducerManager';
 import { UserReducer } from '@/entities/user';
+import { ScrollPositionPersistenceReducer } from '@/features/scroll-position-persistence';
 import { apiInstance } from '@/shared/api';
 
 export const createStore = (initialState: StateSchema, asyncReducers: ReducersMapObject<StateSchema>) => {
     const reducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
+        scrollPersistence: ScrollPositionPersistenceReducer,
         user: UserReducer,
     };
 

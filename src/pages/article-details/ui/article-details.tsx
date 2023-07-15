@@ -38,7 +38,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsProps) => {
 
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(model.getArticleCommentIsLoading);
-    const error = useSelector(model.getArticleCommentError);
 
     const handleSendComment = useCallback((text: string) => {
         dispatch(createArticleComment(text));

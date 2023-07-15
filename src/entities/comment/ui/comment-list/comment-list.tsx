@@ -19,7 +19,7 @@ export const CommentList = memo(({ className, comments, isLoading }: CommentList
 
     return (
         <div className={clsx({ cls: cl.CommentList, additional: [className] })}>
-            {comments.map((comment) => <CommentCard className={cl.comment} comment={comment} isLoading={isLoading} />)}
+            {comments.map((comment) => <CommentCard key={comment.id} className={cl.comment} comment={comment} isLoading={isLoading} />)}
         </div>
     );
 });
