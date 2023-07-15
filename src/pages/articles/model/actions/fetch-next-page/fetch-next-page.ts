@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/Store/config/Schema';
-import { Article } from '@/entities/article';
 import { fetchArticles } from '@/pages/articles';
 import * as model from '@/pages/articles/model/selectors';
 import { ArticlesActions } from '@/pages/articles/model/slice/articles';
@@ -13,7 +12,6 @@ export const fetchNextPage = createAsyncThunk<void, void, ThunkConfig<string>>(
             rejectWithValue, extra, getState, dispatch,
         } = thunkAPI;
 
-        const limit = model.getArticlesLimit(getState());
         const hasMore = model.getArticlesHasMore(getState());
         const page = model.getArticlesPage(getState());
         const isLoading = model.getArticlesIsLoading(getState());
