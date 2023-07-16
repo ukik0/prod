@@ -2,6 +2,7 @@ import { memo } from 'react';
 
 import { Article, ArticleView } from '@/entities/article';
 import { clsx } from '@/shared/lib/helprers/classnames/classNames';
+import { Typography } from '@/shared/ui/Typography';
 
 import { ArticleListItem } from '../article-list-item/article-list-item';
 import { ArticleListItemSkeleton } from '../article-list-item/article-list-item-skeleton';
@@ -32,6 +33,8 @@ export const ArticleList = memo(({
         return <ArticleListItem key={article.id} article={article} view={view} />;
     };
 
+    if (!articles.length && !isLoading) return <Empty />;
+
     return (
         <div className={clsx({ cls: cl.ArticleList, additional: [className, cl[view]] })}>
             {articles.map(renderArticle)}
@@ -39,3 +42,7 @@ export const ArticleList = memo(({
         </div>
     );
 });
+
+function Empty() {
+    return <Typography variant="error">Статьи отсутствуют</Typography>;
+}

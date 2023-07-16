@@ -7,6 +7,8 @@ export interface ArticleBlockBase {
     type: ArticleBlockType;
 }
 
+export type ArticleOrderFields = 'asc' | 'desc'
+
 export interface ArticleCodeBlock extends ArticleBlockBase {
     type: ArticleBlockType.CODE;
     code: string;

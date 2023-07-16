@@ -1,0 +1,10 @@
+.Tabs {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+
+    .active {
+        background: var(--primary-color);
+        color: var(--inverted-primary-color);
+    }
+}
