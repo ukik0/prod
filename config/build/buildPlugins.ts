@@ -1,6 +1,7 @@
 // @ts-ignore
 import svg from '@neodx/svg/webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -41,6 +42,11 @@ export function buildPlugins({
             },
             optimize: true,
             logLevel: 'info',
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: paths.locales, to: paths.localesPath },
+            ],
         }),
     ];
 

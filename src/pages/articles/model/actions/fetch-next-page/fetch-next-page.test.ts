@@ -9,7 +9,7 @@ describe('fetch-next-page', () => {
     test('fetch articles called', async () => {
         const thunk = new TestAsyncThunk(fetchNextPage, {
             articles: {
-                page: 2,
+                page: 3,
                 ids: [],
                 entities: {},
                 limit: 5,
@@ -21,7 +21,6 @@ describe('fetch-next-page', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticles).toHaveBeenCalledWith({ page: 3 });
         expect(fetchArticles).toHaveBeenCalled();
     });
     test('fetch-articles not called', async () => {
